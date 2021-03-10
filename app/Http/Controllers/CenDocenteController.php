@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CenDocente;
 
 class CenDocenteController extends Controller
 {
@@ -24,7 +25,7 @@ class CenDocenteController extends Controller
      */
     public function create()
     {
-        return view("cen_docentes");
+        return view("$cendocente");
     }
     
     
@@ -50,7 +51,7 @@ class CenDocenteController extends Controller
             'tipo_identificada'=>'required',
         ]);
 
-        DB::table('cen_docentes')->insert([
+        DB::table('$cendocente')->insert([
             "denominacion" => $request->denominacion,
             "codigo" => $request->codigo,
             "CIF" => $request->CIF,
@@ -64,6 +65,35 @@ class CenDocenteController extends Controller
             "tipo_identificada" => $request->tipo_identificada
         ]);
 
+        $cendocente1 = new cendocente;
+        $cendocente1->denominacion = "BorjaMoll";
+        $cendocente1->codigo = "4575";
+        $cendocente1->CIF = "432432432D";
+        $cendocente1->titularidad = "concertado";
+        $cendocente1->dir_postal = "Calle Luca de tena";
+        $cendocente1->cp = "07002";
+        $cendocente1->director_nom = "Adrian";
+        $cendocente1->director_apel1 = "Calafell";
+        $cendocente1->director_apel2 = "Bennasar";
+        $cendocente1->identificada = "43472933E";
+        $cendocente1->tipo_identificada = "nif";
+
+        $cendocente2 = new cendocente;
+        $cendocente2->denominacion = "Santa Monica";
+        $cendocente2->codigo = "3235";
+        $cendocente2->CIF = "432432432D";
+        $cendocente2->titularidad = "privado";
+        $cendocente2->dir_postal = "Calle Aragon";
+        $cendocente2->cp = "07004";
+        $cendocente2->director_nom = "Manuel";
+        $cendocente2->director_apel1 = "Morey";
+        $cendocente2->director_apel2 = "Brotons";
+        $cendocente2->identificada = "43471232D";
+        $cendocente2->tipo_identificada = "nie";
+
+        $cendocente1->save();
+        $cendocente2->save();
+        
         return $request;
     }
 
