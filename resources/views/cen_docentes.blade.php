@@ -10,16 +10,18 @@
 <h1>Formulario Cen_Docentes</h1>
     <form method="POST" action="/form/guardar">
         <ul>
+            
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
+            
         </ul>
 
         @csrf
         <div class="form-group">
             <label for="denominacion">{{__("messages.denominacion")}}</label>
             <input required type="text" name="denominacion" class="form-control" placeholder="Introduce denominacion" value="{{ old('denominacion')}}"><br>
-            <p>{{ $errors->first('denominacion') }}</p>
+            <p> {{ $errors->first('denominacion') }}</p>
         </div>
         <div class="form-group">
             <label for="codigo">{{__("messages.codigo")}}</label>
@@ -48,14 +50,17 @@
         <div class="form-group">
             <label for="director_nom">{{__("messages.director_nom")}}</label>
             <input required type="text" name="director_nom" class="form-control" placeholder="Introduce director_nom" value="{{ old('director_nom')}}"><br>
+            <p> {{ $errors->first('director_nom') }}</p>
         </div>
-                <div class="form-group">
+        <div class="form-group">
             <label for="director_apel1">{{__("messages.director_apel1")}}</label>
             <input required type="text" name="director_apel1" class="form-control" placeholder="Introduce director_apel1" value="{{ old('director_apel1')}}"><br>
+            <p> {{ $errors->first('director_apel1') }}</p>
         </div>
         <div class="form-group">
             <label for="director_apel2">{{__("messages.director_apel2")}}</label>
             <input required type="text" name="director_apel2" class="form-control" placeholder="Introduce director_apel2" value="{{ old('director_apel2')}}"><br>
+            <p> {{ $errors->first('director_apel2') }}</p>
         </div>
         <div class="form-group">
             <label for="identificada">{{__("messages.identificada")}}</label>
